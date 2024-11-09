@@ -7,7 +7,7 @@ group = project.property("maven_group") as String
 
 val MOD_VERSION = project.property("mod_version")
 val ARCHIVE_NAME = project.property("archives_base_name")
-val COMPATIBLE_VERSIONS = "[1.21.2, 1.22)"
+val COMPATIBLE_VERSIONS = "[1.21, 1.21.2]"
 
 base {
     archivesName.set(project.property("archives_base_name") as String)
