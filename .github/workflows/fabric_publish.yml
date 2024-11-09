@@ -45,11 +45,11 @@ jobs:
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
-            build/libs/*.jar
+            build/libs/!(*-@(dev|sources|javadoc)).jar
 
           name: ${{ env.RELEASE_NAME }}
           version: ${{ env.MOD_VERSION }}
-          version-type: 'beta'
+          version-type: 'release'
           changelog-file: CHANGELOG.md
 
           game-versions: ${{ env.GAME_VERSIONS }}
@@ -60,7 +60,6 @@ jobs:
 
           dependencies: |
             fabric-api
-            sodium
-            sodium-extra
+            owo-lib
 
           java: ${{ env.JAVA_VERSION }}
