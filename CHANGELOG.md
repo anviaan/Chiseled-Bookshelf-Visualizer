@@ -1,0 +1,2 @@
+- Add support to Lectern
+  - Activate or deactivate the Lectern Toggle by option 
