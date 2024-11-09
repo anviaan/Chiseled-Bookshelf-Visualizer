@@ -4,5 +4,6 @@
     "key.chiseled-bookshelf-visualizer.enabled": "Chiseled Bookshelf Visualizer 已启用",
     "key.chiseled-bookshelf-visualizer.disabled": "Chiseled Bookshelf Visualizer 已禁用",
     "text.config.chiseled-bookshelf-visualizer-config.title": "Chiseled Bookshelf 可视化工具配置",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "可视化器比例"
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "可视化器比例",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "讲台切换"
 }

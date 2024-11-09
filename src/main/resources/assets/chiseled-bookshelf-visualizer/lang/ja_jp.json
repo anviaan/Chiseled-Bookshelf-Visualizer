@@ -4,5 +4,6 @@
     "key.chiseled-bookshelf-visualizer.enabled": "Chiseled Bookshelf Visualizerが有効になっています",
     "key.chiseled-bookshelf-visualizer.disabled": "Chiseled Bookshelf Visualizer が無効になっています",
     "text.config.chiseled-bookshelf-visualizer-config.title": "Chiseled Bookshelf ビジュアライザー設定",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "ビジュアライザースケール"
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "ビジュアライザースケール",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "講義台の切り替え"
 }

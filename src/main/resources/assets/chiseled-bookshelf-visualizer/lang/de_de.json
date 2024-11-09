@@ -4,5 +4,6 @@
     "key.chiseled-bookshelf-visualizer.enabled": "Chiseled Bookshelf Visualizer ist aktiviert",
     "key.chiseled-bookshelf-visualizer.disabled": "Chiseled Bookshelf Visualizer ist deaktiviert",
     "text.config.chiseled-bookshelf-visualizer-config.title": "Chiseled Bookshelf Visualizer-Konfiguration",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Visualizer-Skala"
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Visualizer-Skala",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "Rednerpult Toggle"
 }

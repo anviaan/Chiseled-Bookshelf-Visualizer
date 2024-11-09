@@ -4,5 +4,6 @@
     "key.chiseled-bookshelf-visualizer.enabled": "Chiseled Bookshelf Visualizer è abilitato",
     "key.chiseled-bookshelf-visualizer.disabled": "Il visualizzatore di scaffali cesellati è disabilitato",
     "text.config.chiseled-bookshelf-visualizer-config.title": "Configurazione del visualizzatore di librerie cesellate",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Scala del visualizzatore"
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Scala del visualizzatore",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "Leggio Toggle"
 }

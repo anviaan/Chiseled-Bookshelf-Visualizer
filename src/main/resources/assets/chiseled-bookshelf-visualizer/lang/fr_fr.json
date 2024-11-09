@@ -3,6 +3,7 @@
     "key.chiseled-bookshelf-visualizer.title": "Activation/désactivation du visualiseur",
     "key.chiseled-bookshelf-visualizer.enabled": "Le visualiseur de bibliothèque ciselé est activé",
     "key.chiseled-bookshelf-visualizer.disabled": "Le visualiseur de bibliothèque ciselé est désactivé",
-    "text.config.chiseled-bookshelf-visualizer-config.title": "Configuration du visualiseur de bibliothèque ciselé",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Échelle du visualiseur"
+    "text.config.chiseled-bookshelf-visualizer-config.title": "Configuration du visualiseur d'étagères ciselées",
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Échelle du visualiseur",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "Basculement du pupitre"
 }

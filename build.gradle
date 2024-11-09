@@ -28,12 +28,15 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    Set<String> apiMudules = ["fabric-api-base",
-                              "fabric-networking-api-v1",
-                              "fabric-lifecycle-events-v1"]
+    Set<String> apiMudules = [
+            "fabric-api-base",
+            "fabric-networking-api-v1",
+            "fabric-lifecycle-events-v1",
+            "fabric-resource-loader-v0"
+    ]
 
     apiMudules.forEach {
-        include(modImplementation(fabricApi.module(it, project.fabric_version)))
+        modImplementation(modImplementation(fabricApi.module(it, project.fabric_version)))
     }
 
     modLocalRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")

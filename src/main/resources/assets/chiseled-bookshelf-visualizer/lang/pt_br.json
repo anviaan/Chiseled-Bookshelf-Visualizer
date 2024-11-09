@@ -4,5 +4,6 @@
     "key.chiseled-bookshelf-visualizer.enabled": "O Visualizador de Estante Cinzelada está habilitado",
     "key.chiseled-bookshelf-visualizer.disabled": "O Visualizador de Estante Cinzelada está desabilitado",
     "text.config.chiseled-bookshelf-visualizer-config.title": "Configuração do Visualizador de Estante Cinzelada",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Escala do Visualizador"
+    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Escala do Visualizador",
+    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "Alternar púlpito"
 }
