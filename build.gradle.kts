@@ -41,10 +41,9 @@ dependencies {
 
     modLocalRuntime("com.terraformersmc:modmenu:${project.property("modmenu_version")}")
 
-    annotationProcessor("io.wispforest:owo-lib:${project.property("owo_version")}")
-    modImplementation("io.wispforest:owo-lib:${project.property("owo_version")}")
+    modImplementation(annotationProcessor("io.wispforest:owo-lib:${project.property("owo_version")}")!!)
     include("io.wispforest:owo-sentinel:${project.property("owo_version")}")
-    implementation("com.github.fracpete:romannumerals4j:0.0.1")
+    include(implementation("com.github.fracpete:romannumerals4j:0.0.1")!!)
 }
 
 tasks.processResources {
