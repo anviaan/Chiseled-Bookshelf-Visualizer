@@ -29,6 +29,15 @@
   "mixins": [
     "chiseled-bookshelf-visualizer.mixins.json"
   ],
+  "accessWidener": "chiseled-bookshelf-visualizer.accesswidener",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/chiseled-bookshelf-visualizer",
+        "modmenu.modrinth": "https://modrinth.com/mod/chiseled-bookshelf-visualizer"
+      }
+    }
+  },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": ">=${minecraft_version}",

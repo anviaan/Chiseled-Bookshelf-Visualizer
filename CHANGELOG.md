@@ -1,2 +1,1 @@
-- Add support to Lectern
-  - Activate or deactivate the Lectern Toggle by option 
+- Port to 1.21.2 and 1.21.3

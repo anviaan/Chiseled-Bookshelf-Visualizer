@@ -9,7 +9,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.LightmapTextureManager;
-import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
@@ -86,13 +85,13 @@ public class HudRenderer {
         float scaledY = y / scale;
 
         textRenderer.draw(
-                text,
+                Text.of(text),
                 scaledX,
                 scaledY,
                 color,
                 true,
                 context.getMatrices().peek().getPositionMatrix(),
-                context.getVertexConsumers(),
+                context.vertexConsumers,
                 TextRenderer.TextLayerType.NORMAL,
                 0,
                 LightmapTextureManager.MAX_LIGHT_COORDINATE,

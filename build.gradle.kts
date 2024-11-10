@@ -13,6 +13,10 @@ base {
     archivesName.set(project.property("archives_base_name") as String)
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/chiseled-bookshelf-visualizer.accesswidener")
+}
+
 repositories {
     maven {
         name = "Mod Menu"
