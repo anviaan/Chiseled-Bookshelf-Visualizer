@@ -1,5 +1,6 @@
-package net.anvian.chiseledbookshelfvisualizer.network;
+package net.anvian.chiseledbookshelfvisualizer.network.packets;
 
+import net.anvian.chiseledbookshelfvisualizer.network.BookShelfInspectorNetworkConstants;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.codec.PacketCodecs;
@@ -11,7 +12,7 @@ public record BookShelfInventoryRequestPayload(BlockPos pos, int slotNum) implem
     public static final CustomPayload.Id<BookShelfInventoryRequestPayload> ID = new CustomPayload.Id<>(BookShelfInspectorNetworkConstants.BOOK_SHELF_INVENTORY_REQUEST_PACKET_ID);
 
     public static final PacketCodec<RegistryByteBuf, BookShelfInventoryRequestPayload> CODEC = PacketCodec.tuple(
-            BlockPos.PACKET_CODEC,BookShelfInventoryRequestPayload::pos,
+            BlockPos.PACKET_CODEC, BookShelfInventoryRequestPayload::pos,
             PacketCodecs.INTEGER, BookShelfInventoryRequestPayload::slotNum,
             BookShelfInventoryRequestPayload::new);
 

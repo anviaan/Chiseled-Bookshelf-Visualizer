@@ -8,13 +8,18 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.render.LightmapTextureManager;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.EnchantmentTags;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
+import net.minecraft.text.Texts;
+import net.minecraft.util.Formatting;
 
 @Environment(EnvType.CLIENT)
 public class HudRenderer {
@@ -34,7 +39,7 @@ public class HudRenderer {
         if (shouldRenderCrosshair()) {
             if (!ChiseledBookshelfVisualizerClient.modAvailable) return;
             if (client.options.hudHidden) return;
-            if (client.currentScreen != null) return;
+
 
             if (ChiseledBookshelfVisualizerClient.bookShelfData.isCurrentBookDataToggled) {
                 final BookData currentBookData = ChiseledBookshelfVisualizerClient.currentBookData;
@@ -45,57 +50,56 @@ public class HudRenderer {
                 final ItemStack itemStack = currentBookData.itemStack;
                 int color = 0xFFFFFFFF;
 
-                if (itemStack.getRarity().getFormatting().getColorValue() != null) {
-                    color = itemStack.getRarity().getFormatting().getColorValue();
+                final Integer colorValue = itemStack.getRarity().getFormatting().getColorValue();
+                if (colorValue != null) {
+                    color = colorValue;
                 }
 
-                context.getMatrices().push();
-                context.getMatrices().scale(scale, scale, 1.0f);
-
-                drawScaledCenteredText(context, client.textRenderer, itemStack.getName().getString(), x, y + 10, color, scale);
+                drawScaledText(context, itemStack.getName(), x, y + ((int) (10 * scale)), color, client.textRenderer);
 
                 ItemEnchantmentsComponent storedComponents = itemStack.getComponents().get(DataComponentTypes.STORED_ENCHANTMENTS);
                 if (storedComponents != null) {
-                    int i = (int) (20 * (scale > 1 ? scale : 1));
-
+                    int i = ((int) (20 * scale));
                     for (RegistryEntry<Enchantment> enchantment : storedComponents.getEnchantments()) {
-                        if (storedComponents.getLevel(enchantment) != 1)
-                            drawScaledCenteredText(context, client.textRenderer, enchantment.value().description().copy().append(" " + new RomanNumeralFormat().format(storedComponents.getLevel(enchantment))).getString(), x, y + i, 0xFFCECECE, scale);
-                        else
-                            drawScaledCenteredText(context, client.textRenderer, enchantment.value().description().getString(), x, y + i, 0xFFCECECE, scale);
+                        String lvl = "";
+                        final int level = storedComponents.getLevel(enchantment);
+                        if (level != 1) lvl = String.valueOf(level);
+                        final MutableText enchantmentText;
 
-                        i += (int) (10 * (scale > 1 ? scale : 1));
+                        if (!ChiseledBookshelfVisualizerClient.CONFIG.useRoman() || level == -1)
+                            enchantmentText = enchantment.value().description().copy().append(" " + lvl);
+                        else if (level != 1)
+                            enchantmentText = enchantment.value().description().copy().append(" " + new RomanNumeralFormat().format(level));
+                        else enchantmentText = enchantment.value().description().copy();
+
+                        if (enchantment.isIn(EnchantmentTags.CURSE)) {
+                            Texts.setStyleIfAbsent(enchantmentText, Style.EMPTY.withColor(Formatting.RED));
+                        } else {
+                            Texts.setStyleIfAbsent(enchantmentText, Style.EMPTY.withColor(Formatting.GRAY));
+                        }
+                        drawScaledText(context, enchantmentText, x, y + i, 0xFFFFFFFF, client.textRenderer);
+                        i += (int) (10 * scale);
                     }
                 }
 
                 var writtenBookContentComponent = itemStack.getComponents().get(DataComponentTypes.WRITTEN_BOOK_CONTENT);
 
                 if (writtenBookContentComponent != null) {
-                    String authorText = Text.translatable("book.byAuthor", writtenBookContentComponent.author()).getString();
-                    drawScaledCenteredText(context, client.textRenderer, authorText, x, y + 20, 0xFFCECECE, scale);
+                    drawScaledText(context, Text.translatable("book.byAuthor", writtenBookContentComponent.author()), x, y + (int) (20 * scale), 0xFFFFFFFF, client.textRenderer);
                 }
-                context.getMatrices().pop();
+
             }
         }
     }
 
-    private static void drawScaledCenteredText(DrawContext context, TextRenderer textRenderer, String text, int x, int y, int color, float scale) {
-        int textWidth = textRenderer.getWidth(text);
-        float scaledX = x / scale - (textWidth / 2f);
-        float scaledY = y / scale;
-
-        textRenderer.draw(
-                Text.of(text),
-                scaledX,
-                scaledY,
-                color,
-                true,
-                context.getMatrices().peek().getPositionMatrix(),
-                context.vertexConsumers,
-                TextRenderer.TextLayerType.NORMAL,
-                0,
-                LightmapTextureManager.MAX_LIGHT_COORDINATE,
-                false
-        );
+    private static void drawScaledText(DrawContext context, Text text, int centerX, int y, int color, TextRenderer textRenderer) {
+        MatrixStack stack = context.getMatrices();
+        stack.push();
+        stack.translate(centerX, y, 0);
+        final float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale();
+        stack.scale(scale, scale, scale);
+        stack.translate(-centerX, -y, 0);
+        context.drawCenteredTextWithShadow(textRenderer, text, centerX, y, color);
+        stack.pop();
     }
 }

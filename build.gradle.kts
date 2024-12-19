@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.7-SNAPSHOT"
+    id("fabric-loom") version "1.8-SNAPSHOT"
 }
 
 version = project.property("mod_version") as String
@@ -7,7 +7,7 @@ group = project.property("maven_group") as String
 
 val MOD_VERSION = project.property("mod_version")
 val ARCHIVE_NAME = project.property("archives_base_name")
-val COMPATIBLE_VERSIONS = "[1.21.2, 1.22)"
+val COMPATIBLE_VERSIONS = "[1.21.4, 1.22)"
 
 base {
     archivesName.set(project.property("archives_base_name") as String)
@@ -36,7 +36,12 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
 
     val apiModules = listOf(
-        "fabric-api-base", "fabric-networking-api-v1", "fabric-lifecycle-events-v1", "fabric-resource-loader-v0"
+        "fabric-api-base",
+        "fabric-networking-api-v1",
+        "fabric-lifecycle-events-v1",
+        "fabric-resource-loader-v0",
+        "fabric-client-tags-api-v1",
+        "fabric-convention-tags-v2"
     )
 
     apiModules.forEach {

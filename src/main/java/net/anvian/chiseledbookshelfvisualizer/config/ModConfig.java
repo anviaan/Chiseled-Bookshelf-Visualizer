@@ -12,4 +12,5 @@ public class ModConfig {
     @RestartRequired
     public double scale = 1.0;
     public boolean lecternToggle = true;
+    public boolean useRoman = true;
 }

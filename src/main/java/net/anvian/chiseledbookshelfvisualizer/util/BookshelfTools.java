@@ -11,17 +11,17 @@ import net.minecraft.world.World;
 import java.util.Optional;
 
 public class BookshelfTools {
-    public static ItemStack getItemById(BlockPos pos, int slotNum, PlayerEntity player){
+    public static ItemStack getItemById(BlockPos pos, int slotNum, PlayerEntity player) {
         final World world = ChiseledBookshelfVisualizer.serverInstance.getPlayerManager().getPlayer(player.getUuid()).getWorld();
 
-        if(world == null) return null;
-        Optional<ChiseledBookshelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos,BlockEntityType.CHISELED_BOOKSHELF);
-        if(blockEntityOptional.isEmpty()) return null;
+        if (world == null) return null;
+        Optional<ChiseledBookshelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);
+        if (blockEntityOptional.isEmpty()) return null;
 
         ChiseledBookshelfBlockEntity blockEntity = blockEntityOptional.get();
 
         final ItemStack stack = blockEntity.getStack(slotNum);
-        if(stack.isEmpty()) return null;
+        if (stack.isEmpty()) return null;
 
         return stack;
     }
