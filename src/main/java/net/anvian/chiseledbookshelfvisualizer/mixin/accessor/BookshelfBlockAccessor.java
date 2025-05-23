@@ -1,4 +1,4 @@
-package net.anvian.chiseledbookshelfvisualizer.mixin;
+package net.anvian.chiseledbookshelfvisualizer.mixin.accessor;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ChiseledBookshelfBlock;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 import java.util.OptionalInt;
 
 @Mixin(ChiseledBookshelfBlock.class)
-public interface BookshelfInvoker {
+public interface BookshelfBlockAccessor {
     @Invoker("getSlotForHitPos")
     OptionalInt invokerGetSlotForHitPos(BlockHitResult hit, BlockState state);
 }

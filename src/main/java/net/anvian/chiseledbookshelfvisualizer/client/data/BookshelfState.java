@@ -1,8 +1,8 @@
-package net.anvian.chiseledbookshelfvisualizer.data;
+package net.anvian.chiseledbookshelfvisualizer.client.data;
 
 import net.minecraft.util.math.BlockPos;
 
-public class BookShelfData {
+public class BookshelfState {
     public boolean isCurrentBookDataToggled = false;
     public BlockPos latestPos = null;
     public boolean requestSent = false;

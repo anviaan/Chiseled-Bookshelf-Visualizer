@@ -6,9 +6,9 @@
   "mixins": [
   ],
   "client": [
-    "BookshelfInvoker",
-    "BookshelfMixin",
-    "InGameHudMixin"
+    "accessor.BookshelfBlockAccessor",
+    "client.ClientPlayerTickMixin",
+    "client.InGameHudRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

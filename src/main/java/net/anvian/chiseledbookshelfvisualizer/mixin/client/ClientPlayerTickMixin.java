@@ -1,6 +1,6 @@
-package net.anvian.chiseledbookshelfvisualizer.mixin;
+package net.anvian.chiseledbookshelfvisualizer.mixin.client;
 
-import net.anvian.chiseledbookshelfvisualizer.util.Inspector;
+import net.anvian.chiseledbookshelfvisualizer.client.raycast.BlockInspector;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
@@ -12,17 +12,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayerEntity.class)
-public class BookshelfMixin {
+public class ClientPlayerTickMixin {
 
     @Shadow
     @Final
     protected MinecraftClient client;
 
     @Unique
-    private final Inspector inspector = new Inspector();
+    private final BlockInspector blockInspector = new BlockInspector();
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Ljava/util/List;iterator()Ljava/util/Iterator;"))
     public void injectTick(CallbackInfo ci) {
-        inspector.inspect(client);
+        blockInspector.inspect(client);
     }
 }

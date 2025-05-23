@@ -1,6 +1,6 @@
-package net.anvian.chiseledbookshelfvisualizer.util;
+package net.anvian.chiseledbookshelfvisualizer.common.util;
 
-import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizer;
+import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerMod;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ChiseledBookshelfBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,9 +10,9 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class BookshelfTools {
+public class BookshelfBlockUtil {
     public static ItemStack getItemById(BlockPos pos, int slotNum, PlayerEntity player) {
-        final World world = ChiseledBookshelfVisualizer.serverInstance.getPlayerManager().getPlayer(player.getUuid()).getWorld();
+        final World world = ChiseledBookshelfVisualizerMod.getServerInstance().getPlayerManager().getPlayer(player.getUuid()).getWorld();
 
         if (world == null) return null;
         Optional<ChiseledBookshelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);

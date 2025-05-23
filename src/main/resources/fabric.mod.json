@@ -23,7 +23,7 @@
       "net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerClient"
     ],
     "main": [
-      "net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizer"
+      "net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerMod"
     ]
   },
   "mixins": [

@@ -1,8 +1,8 @@
-package net.anvian.chiseledbookshelfvisualizer.util;
+package net.anvian.chiseledbookshelfvisualizer.client.render;
 
 import com.github.fracpete.romannumerals4j.RomanNumeralFormat;
 import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerClient;
-import net.anvian.chiseledbookshelfvisualizer.data.BookData;
+import net.anvian.chiseledbookshelfvisualizer.client.data.BookInfo;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -22,7 +22,7 @@ import net.minecraft.text.Texts;
 import net.minecraft.util.Formatting;
 
 @Environment(EnvType.CLIENT)
-public class HudRenderer {
+public class BookInfoRenderer {
     private static boolean renderCrosshair = true;
 
     public static void toggleCrosshair() {
@@ -37,17 +37,17 @@ public class HudRenderer {
         float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale();
 
         if (shouldRenderCrosshair()) {
-            if (!ChiseledBookshelfVisualizerClient.modAvailable) return;
+            if (!ChiseledBookshelfVisualizerClient.isModAvailable()) return;
             if (client.options.hudHidden) return;
 
 
-            if (ChiseledBookshelfVisualizerClient.bookShelfData.isCurrentBookDataToggled) {
-                final BookData currentBookData = ChiseledBookshelfVisualizerClient.currentBookData;
+            if (ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled) {
+                final BookInfo currentBookInfo = ChiseledBookshelfVisualizerClient.getCurrentBookInfo();
                 int screenWidth = client.getWindow().getScaledWidth();
                 int screenHeight = client.getWindow().getScaledHeight();
                 int x = screenWidth / 2;
                 int y = screenHeight / 2;
-                final ItemStack itemStack = currentBookData.itemStack;
+                final ItemStack itemStack = currentBookInfo.itemStack;
                 int color = 0xFFFFFFFF;
 
                 final Integer colorValue = itemStack.getRarity().getFormatting().getColorValue();

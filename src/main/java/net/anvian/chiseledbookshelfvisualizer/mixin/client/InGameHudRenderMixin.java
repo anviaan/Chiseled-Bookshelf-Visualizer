@@ -1,7 +1,7 @@
-package net.anvian.chiseledbookshelfvisualizer.mixin;
+package net.anvian.chiseledbookshelfvisualizer.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.anvian.chiseledbookshelfvisualizer.util.HudRenderer;
+import net.anvian.chiseledbookshelfvisualizer.client.render.BookInfoRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -17,13 +17,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Environment(EnvType.CLIENT)
 @Mixin(InGameHud.class)
-public class InGameHudMixin {
+public class InGameHudRenderMixin {
     @Shadow @Final private MinecraftClient client;
 
     @Inject(method = "render",at=@At("RETURN"))
     public void render(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci){
         RenderSystem.enableBlend();
-        HudRenderer.hudRender(context, client);
+        BookInfoRenderer.hudRender(context, client);
         RenderSystem.disableBlend();
     }
 }
