@@ -1,0 +1,9 @@
+{
+    "key.chiseled-bookshelf-visualizer.category": "Keskin kitaplık görselleştirici",
+    "key.chiseled-bookshelf-visualizer.title": "Görselleştirici etkinleştirici/devre dışı bırakıldı",
+    "key.chiseled-bookshelf-visualizer.enabled": "Kepçeli kitaplık görüntüleyici etkinleştirildi",
+    "key.chiseled-bookshelf-visualizer.disabled": "Keskin kitaplık görselleştirici devre dışı bırakıldı",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "Kepçeli kitaplık görselleştirici yapılandırması",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "Görselleştirici ölçeği",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "Roman rakamlarını kullanın"
+}

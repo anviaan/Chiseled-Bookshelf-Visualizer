@@ -1,9 +1,9 @@
 {
-    "key.chiseled-bookshelf-visualizer.category": "輪廓分明的書架展示櫃",
-    "key.chiseled-bookshelf-visualizer.title": "啟用/停用視覺化工具",
-    "key.chiseled-bookshelf-visualizer.enabled": "鑿刻書架展示台已啟用",
-    "key.chiseled-bookshelf-visualizer.disabled": "鑿刻書架展示台已停用",
-    "text.config.chiseled-bookshelf-visualizer-config.title": "輪廓分明的書架展示台配置",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "展示台秤",
-    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "講台切換"
+    "key.chiseled-bookshelf-visualizer.category": "鑿書的書架可視化器",
+    "key.chiseled-bookshelf-visualizer.title": "啟用/禁用可視化器",
+    "key.chiseled-bookshelf-visualizer.enabled": "符合鑿子的書架可視化器已啟用",
+    "key.chiseled-bookshelf-visualizer.disabled": "鑿書的書架可視化器是禁用的",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "鑿書的書架可視化器配置",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "可視化器量表",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "使用羅馬數字"
 }

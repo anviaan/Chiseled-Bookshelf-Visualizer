@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 public class ChiseledBookshelfVisualizerMod implements ModInitializer {
     public static final String MOD_ID = "chiseled-bookshelf-visualizer";
-    public static final String MOD_VERSION = "4.2";
+    public static final String MOD_VERSION = "4.2.1";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     private static MinecraftServer serverInstance;
