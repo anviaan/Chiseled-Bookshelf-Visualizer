@@ -1,6 +1,5 @@
 package net.anvian.chiseledbookshelfvisualizer.mixin.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.anvian.chiseledbookshelfvisualizer.client.render.BookInfoRenderer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -22,8 +21,6 @@ public class InGameHudRenderMixin {
 
     @Inject(method = "render",at=@At("RETURN"))
     public void render(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci){
-        RenderSystem.enableBlend();
         BookInfoRenderer.hudRender(context, client);
-        RenderSystem.disableBlend();
     }
 }
