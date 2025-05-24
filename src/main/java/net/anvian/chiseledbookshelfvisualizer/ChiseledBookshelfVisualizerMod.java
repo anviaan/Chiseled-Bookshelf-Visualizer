@@ -1,5 +1,6 @@
 package net.anvian.chiseledbookshelfvisualizer;
 
+import net.anvian.anvianslib.util.LibUtil;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryRequestPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.ModStatusPacket;
@@ -14,12 +15,15 @@ import org.slf4j.LoggerFactory;
 
 public class ChiseledBookshelfVisualizerMod implements ModInitializer {
     public static final String MOD_ID = "chiseled-bookshelf-visualizer";
+    public static final String MOD_VERSION = "4.2";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     private static MinecraftServer serverInstance;
 
     @Override
     public void onInitialize() {
+        LibUtil.setupTelemetry(MOD_ID, MOD_VERSION);
+
         registerPackets();
         registerServerHandlers();
         registerServerEvents();

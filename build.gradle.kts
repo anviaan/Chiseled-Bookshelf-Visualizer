@@ -7,7 +7,7 @@ group = project.property("maven_group") as String
 
 val MOD_VERSION = project.property("mod_version")
 val ARCHIVE_NAME = project.property("archives_base_name")
-val COMPATIBLE_VERSIONS = "[1.21.4, 1.22)"
+val COMPATIBLE_VERSIONS = "[1.21.4]"
 
 base {
     archivesName.set(project.property("archives_base_name") as String)
@@ -25,6 +25,10 @@ repositories {
     maven {
         name = "WispForest"
         url = uri("https://maven.wispforest.io/releases")
+    }
+    maven {
+        name = "Repsy Anvian"
+        url = uri("https://repo.repsy.io/mvn/anvian/anvians-lib")
     }
 }
 
@@ -53,19 +57,22 @@ dependencies {
     modImplementation(annotationProcessor("io.wispforest:owo-lib:${project.property("owo_version")}")!!)
     include("io.wispforest:owo-sentinel:${project.property("owo_version")}")
     include(implementation("com.github.fracpete:romannumerals4j:0.0.1")!!)
+    modImplementation("net.anvian.anvianslib:anvianslib-fabric-1.21:${project.property("anvianslib")}")
 }
 
 tasks.processResources {
     inputs.property("version", project.version)
     inputs.property("minecraft_version", project.property("minecraft_version"))
     inputs.property("loader_version", project.property("loader_version"))
+    inputs.property("anvianslib", project.property("anvianslib"))
     filteringCharset = "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand(
             "version" to project.version,
             "minecraft_version" to project.property("minecraft_version"),
-            "loader_version" to project.property("loader_version")
+            "loader_version" to project.property("loader_version"),
+            "anvianslib" to project.property("anvianslib")
         )
     }
 }
