@@ -1,9 +1,9 @@
 {
-    "key.chiseled-bookshelf-visualizer.category": "Gemeißelter Bücherregal-Visualisierer",
-    "key.chiseled-bookshelf-visualizer.title": "Aktiviert/Deaktiviert den Visualizer",
-    "key.chiseled-bookshelf-visualizer.enabled": "Chiseled Bookshelf Visualizer ist aktiviert",
-    "key.chiseled-bookshelf-visualizer.disabled": "Chiseled Bookshelf Visualizer ist deaktiviert",
-    "text.config.chiseled-bookshelf-visualizer-config.title": "Chiseled Bookshelf Visualizer-Konfiguration",
-    "text.config.chiseled-bookshelf-visualizer-config.option.scale": "Visualizer-Skala",
-    "text.config.chiseled-bookshelf-visualizer-config.option.lecternToggle": "Rednerpult Toggle"
+    "key.chiseled-bookshelf-visualizer.category": "Gemeißelte Bücherregal -Visualizer",
+    "key.chiseled-bookshelf-visualizer.title": "Aktiviert/deaktiviert den Visualizer",
+    "key.chiseled-bookshelf-visualizer.enabled": "Gemeißelte Bücherregal -Visualizer ist aktiviert",
+    "key.chiseled-bookshelf-visualizer.disabled": "Gemeißelte Bücherregalvisualisierer ist deaktiviert",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "Meißel -Bücherregal -Visualizer -Konfiguration",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "Visualizer -Skala",
+    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "Verwenden Sie römische Ziffern"
 }
