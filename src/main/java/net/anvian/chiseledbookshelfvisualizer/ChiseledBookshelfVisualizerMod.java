@@ -2,10 +2,8 @@ package net.anvian.chiseledbookshelfvisualizer;
 
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryRequestPacket;
-import net.anvian.chiseledbookshelfvisualizer.common.network.packets.LecternInventoryRequestPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.ModStatusPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.network.server.BookInventoryRequestHandler;
-import net.anvian.chiseledbookshelfvisualizer.common.network.server.LecternInventoryRequestHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -35,10 +33,6 @@ public class ChiseledBookshelfVisualizerMod implements ModInitializer {
                 BookInventoryRequestPacket.ID,
                 BookInventoryRequestPacket.CODEC
         );
-        PayloadTypeRegistry.playC2S().register(
-                LecternInventoryRequestPacket.ID,
-                LecternInventoryRequestPacket.CODEC
-        );
 
         // Server to Client packets
         PayloadTypeRegistry.playS2C().register(
@@ -55,10 +49,6 @@ public class ChiseledBookshelfVisualizerMod implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(
                 BookInventoryRequestPacket.ID,
                 new BookInventoryRequestHandler()
-        );
-        ServerPlayNetworking.registerGlobalReceiver(
-                LecternInventoryRequestPacket.ID,
-                new LecternInventoryRequestHandler()
         );
     }
 

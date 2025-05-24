@@ -3,7 +3,6 @@ package net.anvian.chiseledbookshelfvisualizer.client.raycast;
 import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerClient;
 import net.anvian.chiseledbookshelfvisualizer.client.data.BookInfo;
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryRequestPacket;
-import net.anvian.chiseledbookshelfvisualizer.common.network.packets.LecternInventoryRequestPacket;
 import net.anvian.chiseledbookshelfvisualizer.mixin.accessor.BookshelfBlockAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -21,60 +20,38 @@ import java.util.OptionalInt;
 @Environment(EnvType.CLIENT)
 public class BlockInspector {
     public void inspect(MinecraftClient client) {
-        if (!ChiseledBookshelfVisualizerClient.isModAvailable()) return;
+        if (!ChiseledBookshelfVisualizerClient.isModAvailable() || client.cameraEntity == null || client.player == null)
+            return;
 
-        if (client.cameraEntity == null || client.player == null) return;
-
-        //Send raycast max 5 blocks
+        // Raycast up to 5 blocks
         HitResult hit = client.cameraEntity.raycast(5f, 0f, false);
-
-        //find block hit, if not found block returns
-        final HitResult.Type type = hit.getType();
-        if (type != HitResult.Type.BLOCK) {
+        if (hit.getType() != HitResult.Type.BLOCK) {
             resetBookShelfData();
             return;
         }
 
         final BlockHitResult blockHitResult = (BlockHitResult) hit;
         BlockPos pos = blockHitResult.getBlockPos();
+        var bookshelfState = ChiseledBookshelfVisualizerClient.getBookshelfState();
 
-        if (ChiseledBookshelfVisualizerClient.getBookshelfState().latestPos == null)
-            ChiseledBookshelfVisualizerClient.getBookshelfState().latestPos = pos;
+        if (bookshelfState.latestPos == null) bookshelfState.latestPos = pos;
 
-        //If you look at a new block
-        if (!ChiseledBookshelfVisualizerClient.getBookshelfState().latestPos.equals(pos)) {
+        // If looking at a new block
+        if (!bookshelfState.latestPos.equals(pos)) {
             resetBookShelfData();
             ChiseledBookshelfVisualizerClient.setCurrentBookInfo(BookInfo.empty());
         }
-        ChiseledBookshelfVisualizerClient.getBookshelfState().latestPos = pos;
+        bookshelfState.latestPos = pos;
 
-
-        if (client.player.getWorld().getBlockState(pos).isOf(Blocks.CHISELED_BOOKSHELF)) {
+        var blockState = client.player.getWorld().getBlockState(pos);
+        if (blockState.isOf(Blocks.CHISELED_BOOKSHELF)) {
             bookShelfInspect(pos, blockHitResult, client);
-        } else if (client.player.getWorld().getBlockState(pos).isOf(Blocks.LECTERN) && ChiseledBookshelfVisualizerClient.CONFIG.lecternToggle()) {
-            lecternInspect(pos);
         } else {
-
-            ChiseledBookshelfVisualizerClient.getBookshelfState().requestSent = false; // Just for servers that don't have the latest version of mod
-
-            if (!ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled) return;
+            bookshelfState.requestSent = false; // For servers without latest mod version
+            if (!bookshelfState.isCurrentBookDataToggled) return;
             resetBookShelfData();
         }
     }
-
-
-    private void lecternInspect(BlockPos pos) {
-        //Checks if there is saved data.
-        final BookInfo currentBookInfo = ChiseledBookshelfVisualizerClient.getCurrentBookInfo();
-
-        if (currentBookInfo.pos != null && currentBookInfo.pos.equals(pos)) return;
-
-        if (!ChiseledBookshelfVisualizerClient.getBookshelfState().requestSent) {
-            ChiseledBookshelfVisualizerClient.getBookshelfState().requestSent = true;
-            ClientPlayNetworking.send(new LecternInventoryRequestPacket(pos));
-        }
-    }
-
 
     private void bookShelfInspect(BlockPos pos, BlockHitResult blockHitResult, MinecraftClient client) {
         final BlockState blockState = client.player.getWorld().getBlockState(pos);

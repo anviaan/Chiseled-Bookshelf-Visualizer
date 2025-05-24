@@ -7,10 +7,9 @@ import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerMod;
 
 @SuppressWarnings("unused")
 @Modmenu(modId = ChiseledBookshelfVisualizerMod.MOD_ID)
-@Config(name = ChiseledBookshelfVisualizerMod.MOD_ID + "-config", wrapperName = "ClientConfigWrapper")
+@Config(name = ChiseledBookshelfVisualizerMod.MOD_ID + "/" + ChiseledBookshelfVisualizerMod.MOD_ID + "-config", wrapperName = "ClientConfigWrapper")
 public class ClientConfig {
     @RestartRequired
     public double scale = 1.0;
-    public boolean lecternToggle = true;
     public boolean useRoman = true;
 }

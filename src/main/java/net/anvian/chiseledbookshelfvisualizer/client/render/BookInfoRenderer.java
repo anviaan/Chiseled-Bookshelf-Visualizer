@@ -34,61 +34,48 @@ public class BookInfoRenderer {
     }
 
     public static void hudRender(DrawContext context, MinecraftClient client) {
+        if (!shouldRenderCrosshair() || !ChiseledBookshelfVisualizerClient.isModAvailable() || client.options.hudHidden)
+            return;
+
+        if (!ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled) return;
+
+        final BookInfo currentBookInfo = ChiseledBookshelfVisualizerClient.getCurrentBookInfo();
+        int screenWidth = client.getWindow().getScaledWidth();
+        int screenHeight = client.getWindow().getScaledHeight();
+        int x = screenWidth / 2;
+        int y = screenHeight / 2;
+        final ItemStack itemStack = currentBookInfo.itemStack;
+        int color = 0xFFFFFFFF;
+        final Integer colorValue = itemStack.getRarity().getFormatting().getColorValue();
+        if (colorValue != null) color = colorValue;
+
         float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale();
+        drawScaledText(context, itemStack.getName(), x, y + ((int) (10 * scale)), color, client.textRenderer);
 
-        if (shouldRenderCrosshair()) {
-            if (!ChiseledBookshelfVisualizerClient.isModAvailable()) return;
-            if (client.options.hudHidden) return;
-
-
-            if (ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled) {
-                final BookInfo currentBookInfo = ChiseledBookshelfVisualizerClient.getCurrentBookInfo();
-                int screenWidth = client.getWindow().getScaledWidth();
-                int screenHeight = client.getWindow().getScaledHeight();
-                int x = screenWidth / 2;
-                int y = screenHeight / 2;
-                final ItemStack itemStack = currentBookInfo.itemStack;
-                int color = 0xFFFFFFFF;
-
-                final Integer colorValue = itemStack.getRarity().getFormatting().getColorValue();
-                if (colorValue != null) {
-                    color = colorValue;
+        ItemEnchantmentsComponent storedComponents = itemStack.getComponents().get(DataComponentTypes.STORED_ENCHANTMENTS);
+        if (storedComponents != null) {
+            int i = ((int) (20 * scale));
+            for (RegistryEntry<Enchantment> enchantment : storedComponents.getEnchantments()) {
+                int level = storedComponents.getLevel(enchantment);
+                MutableText enchantmentText;
+                if (!ChiseledBookshelfVisualizerClient.CONFIG.useRoman() || level == -1) {
+                    enchantmentText = enchantment.value().description().copy();
+                    if (level != 1) enchantmentText.append(" " + level);
+                } else if (level != 1) {
+                    enchantmentText = enchantment.value().description().copy().append(" " + new RomanNumeralFormat().format(level));
+                } else {
+                    enchantmentText = enchantment.value().description().copy();
                 }
-
-                drawScaledText(context, itemStack.getName(), x, y + ((int) (10 * scale)), color, client.textRenderer);
-
-                ItemEnchantmentsComponent storedComponents = itemStack.getComponents().get(DataComponentTypes.STORED_ENCHANTMENTS);
-                if (storedComponents != null) {
-                    int i = ((int) (20 * scale));
-                    for (RegistryEntry<Enchantment> enchantment : storedComponents.getEnchantments()) {
-                        String lvl = "";
-                        final int level = storedComponents.getLevel(enchantment);
-                        if (level != 1) lvl = String.valueOf(level);
-                        final MutableText enchantmentText;
-
-                        if (!ChiseledBookshelfVisualizerClient.CONFIG.useRoman() || level == -1)
-                            enchantmentText = enchantment.value().description().copy().append(" " + lvl);
-                        else if (level != 1)
-                            enchantmentText = enchantment.value().description().copy().append(" " + new RomanNumeralFormat().format(level));
-                        else enchantmentText = enchantment.value().description().copy();
-
-                        if (enchantment.isIn(EnchantmentTags.CURSE)) {
-                            Texts.setStyleIfAbsent(enchantmentText, Style.EMPTY.withColor(Formatting.RED));
-                        } else {
-                            Texts.setStyleIfAbsent(enchantmentText, Style.EMPTY.withColor(Formatting.GRAY));
-                        }
-                        drawScaledText(context, enchantmentText, x, y + i, 0xFFFFFFFF, client.textRenderer);
-                        i += (int) (10 * scale);
-                    }
-                }
-
-                var writtenBookContentComponent = itemStack.getComponents().get(DataComponentTypes.WRITTEN_BOOK_CONTENT);
-
-                if (writtenBookContentComponent != null) {
-                    drawScaledText(context, Text.translatable("book.byAuthor", writtenBookContentComponent.author()), x, y + (int) (20 * scale), 0xFFFFFFFF, client.textRenderer);
-                }
-
+                Style style = enchantment.isIn(EnchantmentTags.CURSE) ? Style.EMPTY.withColor(Formatting.RED) : Style.EMPTY.withColor(Formatting.GRAY);
+                Texts.setStyleIfAbsent(enchantmentText, style);
+                drawScaledText(context, enchantmentText, x, y + i, 0xFFFFFFFF, client.textRenderer);
+                i += (int) (10 * scale);
             }
+        }
+
+        var writtenBookContentComponent = itemStack.getComponents().get(DataComponentTypes.WRITTEN_BOOK_CONTENT);
+        if (writtenBookContentComponent != null) {
+            drawScaledText(context, Text.translatable("book.byAuthor", writtenBookContentComponent.author()), x, y + (int) (20 * scale), 0xFFFFFFFF, client.textRenderer);
         }
     }
 
