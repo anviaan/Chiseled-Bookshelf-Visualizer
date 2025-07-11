@@ -7,7 +7,7 @@ group = project.property("maven_group") as String
 
 val MOD_VERSION = project.property("mod_version")
 val ARCHIVE_NAME = project.property("archives_base_name")
-val COMPATIBLE_VERSIONS = "[1.21.5, 1.22]"
+val COMPATIBLE_VERSIONS = "[1.21.6, 1.22]"
 
 base {
     archivesName.set(project.property("archives_base_name") as String)
@@ -39,25 +39,12 @@ dependencies {
 
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
 
-    val apiModules = listOf(
-        "fabric-api-base",
-        "fabric-networking-api-v1",
-        "fabric-lifecycle-events-v1",
-        "fabric-resource-loader-v0",
-        "fabric-client-tags-api-v1",
-        "fabric-convention-tags-v2"
-    )
-
-    apiModules.forEach {
-        modImplementation(fabricApi.module(it, project.property("fabric_version") as String))
-    }
-
     modLocalRuntime("com.terraformersmc:modmenu:${project.property("modmenu_version")}")
 
     modImplementation(annotationProcessor("io.wispforest:owo-lib:${project.property("owo_version")}")!!)
     include("io.wispforest:owo-sentinel:${project.property("owo_version")}")
     include(implementation("com.github.fracpete:romannumerals4j:0.0.1")!!)
-    modImplementation("net.anvian.anvianslib:anvianslib-fabric-1.21:${project.property("anvianslib")}")
+    modImplementation("net.anvian.anvianslib:anvianslib-fabric-1.21.6:${project.property("anvianslib")}")
 }
 
 tasks.processResources {
