@@ -5,6 +5,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.ChiseledBookshelfBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -12,7 +13,12 @@ import java.util.Optional;
 
 public class BookshelfBlockUtil {
     public static ItemStack getItemById(BlockPos pos, int slotNum, PlayerEntity player) {
-        final World world = ChiseledBookshelfVisualizerMod.getServerInstance().getPlayerManager().getPlayer(player.getUuid()).getWorld();
+        ServerPlayerEntity serverPlayer = ChiseledBookshelfVisualizerMod.getServerInstance()
+                .getPlayerManager()
+                .getPlayer(player.getUuid());
+        if (serverPlayer == null) return null;
+
+        final World world = serverPlayer.getEntityWorld();
 
         if (world == null) return null;
         Optional<ChiseledBookshelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);

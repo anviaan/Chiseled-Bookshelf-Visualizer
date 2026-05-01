@@ -5,17 +5,19 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBindings {
     public static KeyBinding activateKey;
+    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of("chiseled-bookshelf-visualizer", "category"));
 
     public static void register() {
         activateKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.chiseled-bookshelf-visualizer.title",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_B,
-                "key.chiseled-bookshelf-visualizer.category"
+                CATEGORY
         ));
         registerKeyInputs();
     }

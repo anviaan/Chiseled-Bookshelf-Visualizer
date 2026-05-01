@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.10-SNAPSHOT"
+    id("fabric-loom") version "1.15-SNAPSHOT"
 }
 
 version = project.property("mod_version") as String
@@ -7,7 +7,7 @@ group = project.property("maven_group") as String
 
 val MOD_VERSION = project.property("mod_version")
 val ARCHIVE_NAME = project.property("archives_base_name")
-val COMPATIBLE_VERSIONS = "[1.21.6, 1.22]"
+val COMPATIBLE_VERSIONS = "[1.21.10, 1.22]"
 
 base {
     archivesName.set(project.property("archives_base_name") as String)
@@ -18,6 +18,11 @@ loom {
 }
 
 repositories {
+    mavenCentral()
+    maven {
+        name = "JitPack"
+        url = uri("https://jitpack.io")
+    }
     maven {
         name = "Mod Menu"
         url = uri("https://maven.terraformersmc.com/")
@@ -44,7 +49,7 @@ dependencies {
     modImplementation(annotationProcessor("io.wispforest:owo-lib:${project.property("owo_version")}")!!)
     include("io.wispforest:owo-sentinel:${project.property("owo_version")}")
     include(implementation("com.github.fracpete:romannumerals4j:0.0.1")!!)
-    modImplementation("net.anvian.anvianslib:anvianslib-fabric-1.21.6:${project.property("anvianslib")}")
+    modImplementation("net.anvian.anvianslib:anvianslib-fabric-1.21.10:${project.property("anvianslib")}")
 }
 
 tasks.processResources {
@@ -57,9 +62,9 @@ tasks.processResources {
     filesMatching("fabric.mod.json") {
         expand(
             "version" to project.version,
-            "minecraft_version" to project.property("minecraft_version"),
-            "loader_version" to project.property("loader_version"),
-            "anvianslib" to project.property("anvianslib")
+            "minecraft_version" to project.property("minecraft_version") as String,
+            "loader_version" to project.property("loader_version") as String,
+            "anvianslib" to project.property("anvianslib") as String
         )
     }
 }
