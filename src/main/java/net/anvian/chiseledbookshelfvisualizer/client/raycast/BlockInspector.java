@@ -7,25 +7,25 @@ import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInvento
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ChiseledBookshelfBlock;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChiseledBookShelfBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 import java.util.OptionalInt;
 
 @Environment(EnvType.CLIENT)
 public class BlockInspector {
-    public void inspect(MinecraftClient client) {
+    public void inspect(Minecraft client) {
         var cameraEntity = client.getCameraEntity();
-        if (!ChiseledBookshelfVisualizerClient.isModAvailable() || cameraEntity == null || client.player == null)
+        if (!ChiseledBookshelfVisualizerClient.isModAvailable() || cameraEntity == null || client.player == null || client.level == null)
             return;
 
-        HitResult hit = cameraEntity.raycast(5f, 0f, false);
+        HitResult hit = cameraEntity.pick(5f, 0f, false);
         if (hit.getType() != HitResult.Type.BLOCK) {
             resetBookShelfData();
             return;
@@ -41,8 +41,8 @@ public class BlockInspector {
         }
         bookshelfState.latestPos = pos;
 
-        BlockState blockState = client.player.getEntityWorld().getBlockState(pos);
-        if (blockState.isOf(Blocks.CHISELED_BOOKSHELF)) {
+        BlockState blockState = client.level.getBlockState(pos);
+        if (blockState.is(Blocks.CHISELED_BOOKSHELF)) {
             inspectBookshelf(pos, blockHitResult, client, bookshelfState);
         } else {
             bookshelfState.requestSent = false;
@@ -52,12 +52,12 @@ public class BlockInspector {
         }
     }
 
-    private void inspectBookshelf(BlockPos pos, BlockHitResult blockHitResult, MinecraftClient client, BookshelfState bookshelfState) {
-        BlockState blockState = client.player.getEntityWorld().getBlockState(pos);
-        ChiseledBookshelfBlock bookshelfBlock = (ChiseledBookshelfBlock) blockState.getBlock();
+    private void inspectBookshelf(BlockPos pos, BlockHitResult blockHitResult, Minecraft client, BookshelfState bookshelfState) {
+        BlockState blockState = client.level.getBlockState(pos);
+        ChiseledBookShelfBlock bookshelfBlock = (ChiseledBookShelfBlock) blockState.getBlock();
         OptionalInt optionalInt = bookshelfBlock.getHitSlot(
                 blockHitResult,
-                blockState.get(HorizontalFacingBlock.FACING)
+                blockState.getValue(BlockStateProperties.HORIZONTAL_FACING)
         );
 
         if (optionalInt.isEmpty()) {

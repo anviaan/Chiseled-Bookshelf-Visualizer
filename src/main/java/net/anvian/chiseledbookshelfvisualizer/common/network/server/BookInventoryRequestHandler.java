@@ -5,8 +5,8 @@ import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInvento
 import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInventoryRequestPacket;
 import net.anvian.chiseledbookshelfvisualizer.common.util.BookshelfBlockUtil;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class BookInventoryRequestHandler implements ServerPlayNetworking.PlayPayloadHandler<BookInventoryRequestPacket> {
     @Override
@@ -16,7 +16,7 @@ public class BookInventoryRequestHandler implements ServerPlayNetworking.PlayPay
 
             ItemStack stack = BookshelfBlockUtil.getItemById(bookInventoryRequestPacket.pos(), bookInventoryRequestPacket.slotNum(), context.player());
             if (stack == null) {
-                ServerPlayNetworking.send(context.player(), new BookInventoryPacket(Items.AIR.getDefaultStack(), bookInventoryRequestPacket.pos(), bookInventoryRequestPacket.slotNum()));
+                ServerPlayNetworking.send(context.player(), new BookInventoryPacket(Items.AIR.getDefaultInstance(), bookInventoryRequestPacket.pos(), bookInventoryRequestPacket.slotNum()));
                 return;
             }
             ServerPlayNetworking.send(context.player(), new BookInventoryPacket(stack, bookInventoryRequestPacket.pos(), bookInventoryRequestPacket.slotNum()));

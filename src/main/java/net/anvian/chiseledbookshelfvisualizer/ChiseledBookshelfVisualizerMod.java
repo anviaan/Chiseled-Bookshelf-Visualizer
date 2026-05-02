@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ChiseledBookshelfVisualizerMod implements ModInitializer {
-    public static final String MOD_ID = "chiseled-bookshelf-visualizer";
+    public static final String MOD_ID = "chiseledbookshelfvisualizer";
     public static final String MOD_VERSION = "4.2";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -33,25 +33,25 @@ public class ChiseledBookshelfVisualizerMod implements ModInitializer {
 
     private void registerPackets() {
         // Client to Server packets
-        PayloadTypeRegistry.playC2S().register(
-                BookInventoryRequestPacket.ID,
-                BookInventoryRequestPacket.CODEC
+        PayloadTypeRegistry.serverboundPlay().register(
+                BookInventoryRequestPacket.TYPE,
+                BookInventoryRequestPacket.STREAM_CODEC
         );
 
         // Server to Client packets
-        PayloadTypeRegistry.playS2C().register(
-                BookInventoryPacket.ID,
-                BookInventoryPacket.CODEC
+        PayloadTypeRegistry.clientboundPlay().register(
+                BookInventoryPacket.TYPE,
+                BookInventoryPacket.STREAM_CODEC
         );
-        PayloadTypeRegistry.playS2C().register(
-                ModStatusPacket.ID,
-                ModStatusPacket.CODEC
+        PayloadTypeRegistry.clientboundPlay().register(
+                ModStatusPacket.TYPE,
+                ModStatusPacket.STREAM_CODEC
         );
     }
 
     private void registerServerHandlers() {
         ServerPlayNetworking.registerGlobalReceiver(
-                BookInventoryRequestPacket.ID,
+                BookInventoryRequestPacket.TYPE,
                 new BookInventoryRequestHandler()
         );
     }

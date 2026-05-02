@@ -1,6 +1,6 @@
 package net.anvian.chiseledbookshelfvisualizer.client.data;
 
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
 
 public class BookshelfState {
     public boolean isCurrentBookDataToggled = false;

@@ -1,9 +1,0 @@
-{
-    "key.category.chiseled-bookshelf-visualizer.category": "Visualizador de estanterías cinceladas",
-    "key.chiseled-bookshelf-visualizer.title": "Habilitado/deshabilitado el visualizador",
-    "key.chiseled-bookshelf-visualizer.enabled": "Visualizador de estantería cincelada está habilitado",
-    "key.chiseled-bookshelf-visualizer.disabled": "Visualizador de estantería cincelada está deshabilitado",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "Configuración de visualizador de estantería cincelada",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "Escala de visualizador",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "Usar números romanos"
-}

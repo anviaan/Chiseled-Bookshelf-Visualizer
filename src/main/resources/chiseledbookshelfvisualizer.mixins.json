@@ -6,8 +6,6 @@
   "mixins": [
   ],
   "client": [
-    "client.ClientPlayerTickMixin",
-    "client.InGameHudRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,9 @@
+{
+    "key.category.chiseledbookshelfvisualizer.category": "Visualiseur de bibliothèque ciselée",
+    "key.chiseledbookshelfvisualizer.title": "Activé / désactivé le visualiseur",
+    "key.chiseledbookshelfvisualizer.enabled": "Le visualiseur de bibliothèque ciselée est activé",
+    "key.chiseledbookshelfvisualizer.disabled": "Le visualiseur de bibliothèque ciselée est désactivé",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Config de visualiseur de bibliothèque ciselée",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Échelle de visualiseur",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Utilisez des chiffres romains"
+}

@@ -1,32 +1,31 @@
 package net.anvian.chiseledbookshelfvisualizer.common.util;
 
 import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerMod;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.ChiseledBookshelfBlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity;
 
 import java.util.Optional;
 
 public class BookshelfBlockUtil {
-    public static ItemStack getItemById(BlockPos pos, int slotNum, PlayerEntity player) {
-        ServerPlayerEntity serverPlayer = ChiseledBookshelfVisualizerMod.getServerInstance()
-                .getPlayerManager()
-                .getPlayer(player.getUuid());
+    public static ItemStack getItemById(BlockPos pos, int slotNum, Player player) {
+        ServerPlayer serverPlayer = ChiseledBookshelfVisualizerMod.getServerInstance()
+                .getPlayerList()
+                .getPlayer(player.getUUID());
         if (serverPlayer == null) return null;
 
-        final World world = serverPlayer.getEntityWorld();
+        final Level world = serverPlayer.level();
 
-        if (world == null) return null;
-        Optional<ChiseledBookshelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);
+        Optional<ChiseledBookShelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);
         if (blockEntityOptional.isEmpty()) return null;
 
-        ChiseledBookshelfBlockEntity blockEntity = blockEntityOptional.get();
+        ChiseledBookShelfBlockEntity blockEntity = blockEntityOptional.get();
 
-        final ItemStack stack = blockEntity.getStack(slotNum);
+        final ItemStack stack = blockEntity.getItems().get(slotNum);
         if (stack.isEmpty()) return null;
 
         return stack;

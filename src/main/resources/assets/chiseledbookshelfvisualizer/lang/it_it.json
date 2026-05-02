@@ -1,0 +1,9 @@
+{
+    "key.category.chiseledbookshelfvisualizer.category": "Visualizzatore cesellato di scaffali",
+    "key.chiseledbookshelfvisualizer.title": "Abilitato/disabilitato il visualizzatore",
+    "key.chiseledbookshelfvisualizer.enabled": "Il visualizzatore di scaffali cesellato è abilitato",
+    "key.chiseledbookshelfvisualizer.disabled": "Il visualizzatore di librerie cesellate è disabilitato",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Configurazione del visualizzatore di librerie cesellate",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Scala del visualizzatore",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Usa i numeri romani"
+}

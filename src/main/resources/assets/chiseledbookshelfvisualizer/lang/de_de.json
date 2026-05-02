@@ -1,0 +1,9 @@
+{
+    "key.category.chiseledbookshelfvisualizer.category": "Gemeißelte Bücherregal -Visualizer",
+    "key.chiseledbookshelfvisualizer.title": "Aktiviert/deaktiviert den Visualizer",
+    "key.chiseledbookshelfvisualizer.enabled": "Gemeißelte Bücherregal -Visualizer ist aktiviert",
+    "key.chiseledbookshelfvisualizer.disabled": "Gemeißelte Bücherregalvisualisierer ist deaktiviert",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Meißel -Bücherregal -Visualizer -Konfiguration",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Visualizer -Skala",
+    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Verwenden Sie römische Ziffern"
+}

@@ -1,9 +1,0 @@
-{
-    "key.category.chiseled-bookshelf-visualizer.category": "彫られた本棚ビジュアライザー",
-    "key.chiseled-bookshelf-visualizer.title": "Visualizerを有効/無効にしました",
-    "key.chiseled-bookshelf-visualizer.enabled": "彫られた本棚Visualizerが有効になっています",
-    "key.chiseled-bookshelf-visualizer.disabled": "彫られた本棚Visualizerは無効です",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "彫られた本棚Visualizer Config",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "ビジュアライザースケール",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "ローマ数字を使用してください"
-}

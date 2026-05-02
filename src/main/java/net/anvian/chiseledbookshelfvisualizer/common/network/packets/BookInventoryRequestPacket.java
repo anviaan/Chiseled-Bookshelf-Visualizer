@@ -1,23 +1,23 @@
 package net.anvian.chiseledbookshelfvisualizer.common.network.packets;
 
 import net.anvian.chiseledbookshelfvisualizer.common.network.NetworkConstants;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
-public record BookInventoryRequestPacket(BlockPos pos, int slotNum) implements CustomPayload {
+public record BookInventoryRequestPacket(BlockPos pos, int slotNum) implements CustomPacketPayload {
 
-    public static final CustomPayload.Id<BookInventoryRequestPacket> ID = new CustomPayload.Id<>(NetworkConstants.BOOK_SHELF_INVENTORY_REQUEST_PACKET_ID);
+    public static final Type<BookInventoryRequestPacket> TYPE = new Type<>(NetworkConstants.BOOK_SHELF_INVENTORY_REQUEST_PACKET_ID);
 
-    public static final PacketCodec<RegistryByteBuf, BookInventoryRequestPacket> CODEC = PacketCodec.tuple(
-            BlockPos.PACKET_CODEC, BookInventoryRequestPacket::pos,
-            PacketCodecs.INTEGER, BookInventoryRequestPacket::slotNum,
+    public static final StreamCodec<RegistryFriendlyByteBuf, BookInventoryRequestPacket> STREAM_CODEC = StreamCodec.composite(
+            BlockPos.STREAM_CODEC, BookInventoryRequestPacket::pos,
+            ByteBufCodecs.INT, BookInventoryRequestPacket::slotNum,
             BookInventoryRequestPacket::new);
 
     @Override
-    public Id<? extends CustomPayload> getId() {
-        return ID;
+    public Type<? extends CustomPacketPayload> type() {
+        return TYPE;
     }
 }

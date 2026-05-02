@@ -1,9 +1,0 @@
-{
-    "key.category.chiseled-bookshelf-visualizer.category": "Rząty wizualizator półki na książki",
-    "key.chiseled-bookshelf-visualizer.title": "Włączone/wyłączone wizualizator",
-    "key.chiseled-bookshelf-visualizer.enabled": "Dokonany wizualizator z regałów jest włączony",
-    "key.chiseled-bookshelf-visualizer.disabled": "Rząty wizualizator półki na książki jest wyłączony",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.title": "Dokumana konfigura",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.scale": "Skala wizualizatora",
-    "text.config.chiseled-bookshelf-visualizer/chiseled-bookshelf-visualizer-config.option.useRoman": "Użyj cyfr rzymskich"
-}

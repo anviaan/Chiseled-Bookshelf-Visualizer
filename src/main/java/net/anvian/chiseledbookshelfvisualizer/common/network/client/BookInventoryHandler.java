@@ -6,7 +6,6 @@ import net.anvian.chiseledbookshelfvisualizer.common.network.packets.BookInvento
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.item.Items;
 
 @Environment(EnvType.CLIENT)
 public class BookInventoryHandler implements ClientPlayNetworking.PlayPayloadHandler<BookInventoryPacket> {
@@ -14,7 +13,7 @@ public class BookInventoryHandler implements ClientPlayNetworking.PlayPayloadHan
     public void receive(BookInventoryPacket bookInventoryPacket, ClientPlayNetworking.Context context) {
         context.client().execute(() -> {
             ChiseledBookshelfVisualizerClient.getBookshelfState().requestSent = false;
-            if (bookInventoryPacket.itemStack().isOf(Items.AIR)) {
+            if (bookInventoryPacket.itemStack().isEmpty()) {
                 ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled = false;
                 ChiseledBookshelfVisualizerClient.setCurrentBookInfo(BookInfo.empty());
                 ChiseledBookshelfVisualizerClient.getCurrentBookInfo().slotId = -2;

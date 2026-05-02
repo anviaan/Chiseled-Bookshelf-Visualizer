@@ -1,7 +1,7 @@
 package net.anvian.chiseledbookshelfvisualizer.client.data;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
 
 public class BookInfo {
     public ItemStack itemStack;
@@ -14,7 +14,7 @@ public class BookInfo {
         this.slotId = slotId;
     }
 
-    public static BookInfo empty(){
+    public static BookInfo empty() {
         return new BookInfo(ItemStack.EMPTY, null, -1);
     }
 }

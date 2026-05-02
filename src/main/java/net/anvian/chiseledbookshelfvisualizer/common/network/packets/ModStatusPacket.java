@@ -1,21 +1,21 @@
 package net.anvian.chiseledbookshelfvisualizer.common.network.packets;
 
 import net.anvian.chiseledbookshelfvisualizer.common.network.NetworkConstants;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.network.packet.CustomPayload;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
-public record ModStatusPacket(boolean modActivated) implements CustomPayload {
-    public static final CustomPayload.Id<ModStatusPacket> ID = new CustomPayload.Id<>(NetworkConstants.MOD_CHECK_PACKET_ID);
+public record ModStatusPacket(boolean modActivated) implements CustomPacketPayload {
+    public static final Type<ModStatusPacket> TYPE = new Type<>(NetworkConstants.MOD_CHECK_PACKET_ID);
 
-    public static final PacketCodec<RegistryByteBuf, ModStatusPacket> CODEC = PacketCodec.tuple(
-            PacketCodecs.BOOLEAN, ModStatusPacket::modActivated,
+    public static final StreamCodec<RegistryFriendlyByteBuf, ModStatusPacket> STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.BOOL, ModStatusPacket::modActivated,
             ModStatusPacket::new
     );
 
     @Override
-    public Id<? extends CustomPayload> getId() {
-        return ID;
+    public Type<? extends CustomPacketPayload> type() {
+        return TYPE;
     }
 }

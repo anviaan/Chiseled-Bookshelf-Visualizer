@@ -1,21 +1,22 @@
 package net.anvian.chiseledbookshelfvisualizer.client.input;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.anvian.chiseledbookshelfvisualizer.client.render.BookInfoRenderer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyBindings {
-    public static KeyBinding activateKey;
-    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of("chiseled-bookshelf-visualizer", "category"));
+    public static KeyMapping activateKey;
+    private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(Identifier.fromNamespaceAndPath("chiseledbookshelfvisualizer", "category"));
 
     public static void register() {
-        activateKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.chiseled-bookshelf-visualizer.title",
-                InputUtil.Type.KEYSYM,
+        activateKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
+                "key.chiseledbookshelfvisualizer.title",
+                InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_B,
                 CATEGORY
         ));
@@ -24,14 +25,17 @@ public class KeyBindings {
 
     private static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (activateKey.wasPressed()) {
+            while (activateKey.consumeClick()) {
                 BookInfoRenderer.toggleCrosshair();
 
-                if (BookInfoRenderer.shouldRenderCrosshair()) {
-                    client.player.sendMessage(net.minecraft.text.Text.translatable("key.chiseled-bookshelf-visualizer.enabled"), true);
-                } else {
-                    client.player.sendMessage(net.minecraft.text.Text.translatable("key.chiseled-bookshelf-visualizer.disabled"), true);
+                if (client.player == null) {
+                    continue;
                 }
+
+                Component message = BookInfoRenderer.shouldRenderCrosshair()
+                        ? Component.translatable("key.chiseledbookshelfvisualizer.enabled")
+                        : Component.translatable("key.chiseledbookshelfvisualizer.disabled");
+                client.player.sendOverlayMessage(message);
             }
         });
     }
