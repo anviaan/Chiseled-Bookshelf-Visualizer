@@ -8,7 +8,7 @@ group = project.maven_group
 
 def MOD_VERSION = project.mod_version
 def ARCHIVE_NAME = project.archives_base_name
-def COMPATIBLE_VERSIONS = '[26.1, 26.2)'
+def COMPATIBLE_VERSIONS = '[26.2, 26.3)'
 
 base {
     archivesName = project.archives_base_name
@@ -25,12 +25,22 @@ repositories {
         url = uri('https://jitpack.io')
     }
     maven {
-        name = 'Mod Menu'
-        url = uri('https://maven.terraformersmc.com/')
+        name = 'Shedaniel'
+        url = uri('https://maven.shedaniel.me/')
     }
     maven {
-        name = 'WispForest'
-        url = uri('https://maven.wispforest.io/releases')
+        name = 'TerraformersMC'
+        url = uri('https://maven.terraformersmc.com/')
+        mavenContent {
+            includeGroup 'com.terraformersmc'
+        }
+    }
+    maven {
+        name = 'Modrinth'
+        url = uri('https://api.modrinth.com/maven')
+        mavenContent {
+            includeGroup 'maven.modrinth'
+        }
     }
     maven {
         name = 'anvianMaven'
@@ -45,10 +55,9 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
     implementation "net.fabricmc.fabric-api:fabric-key-mapping-api-v1:${project.fabric_api_version}"
 
-    localRuntime "com.terraformersmc:modmenu:${project.modmenu_version}"
+    api "maven.modrinth:modmenu:${project.modmenu_version}"
 
-    implementation(annotationProcessor("io.wispforest:owo-lib:${project.owo_version}"))
-    include "io.wispforest:owo-sentinel:${project.owo_version}"
+    implementation(annotationProcessor("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"))
     include(implementation('com.github.fracpete:romannumerals4j:0.0.1'))
     implementation "net.anvian.anvianslib:anvianslib-fabric-26.1:${project.anvianslib}"
 }
@@ -101,24 +110,24 @@ tasks.register('printEnv') {
 }
 
 publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			from components.java
-		}
-	}
+    publications {
+        create("mavenJava", MavenPublication) {
+            from components.java
+        }
+    }
 
-	repositories {
-		maven {
-			name = "Reposilite"
-			url = uri(
-				version.toString().endsWith("SNAPSHOT")
-						? "https://maven.anvian.net/snapshots"
-						: "https://maven.anvian.net/releases"
-			)
-			credentials {
-				username = project.findProperty("reposilite.user") ?: System.getenv("REPOSILITE_USER")
-				password = project.findProperty("reposilite.token") ?: System.getenv("REPOSILITE_TOKEN")
-			}
-		}
-	}
+    repositories {
+        maven {
+            name = "Reposilite"
+            url = uri(
+                    version.toString().endsWith("SNAPSHOT")
+                            ? "https://maven.anvian.net/snapshots"
+                            : "https://maven.anvian.net/releases"
+            )
+            credentials {
+                username = project.findProperty("reposilite.user") ?: System.getenv("REPOSILITE_USER")
+                password = project.findProperty("reposilite.token") ?: System.getenv("REPOSILITE_TOKEN")
+            }
+        }
+    }
 }

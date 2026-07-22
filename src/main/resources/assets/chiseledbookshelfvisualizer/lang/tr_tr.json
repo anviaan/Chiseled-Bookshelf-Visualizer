@@ -1,9 +1,9 @@
 {
-    "key.category.chiseledbookshelfvisualizer.category": "Keskin kitaplık görselleştirici",
-    "key.chiseledbookshelfvisualizer.title": "Görselleştirici etkinleştirici/devre dışı bırakıldı",
-    "key.chiseledbookshelfvisualizer.enabled": "Kepçeli kitaplık görüntüleyici etkinleştirildi",
-    "key.chiseledbookshelfvisualizer.disabled": "Keskin kitaplık görselleştirici devre dışı bırakıldı",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Kepçeli kitaplık görselleştirici yapılandırması",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Görselleştirici ölçeği",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Roman rakamlarını kullanın"
+  "key.category.chiseledbookshelfvisualizer.category": "Yontulmuş Kitaplık Görselleştiricisi",
+  "key.chiseledbookshelfvisualizer.title": "Görselleştiriciyi etkinleştir/devre dışı bırak",
+  "key.chiseledbookshelfvisualizer.enabled": "Chiseled Bookshelf Visualizer etkinleştirildi",
+  "key.chiseledbookshelfvisualizer.disabled": "Chiseled Bookshelf Visualizer devre dışı bırakıldı",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Yontulmuş Kitaplık Görselleştirici Yapılandırması",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Görselleştirici Ölçeği",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Roma rakamları kullanın"
 }

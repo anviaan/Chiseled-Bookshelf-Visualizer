@@ -3,7 +3,7 @@
     "key.chiseledbookshelfvisualizer.title": "Włączone/wyłączone wizualizator",
     "key.chiseledbookshelfvisualizer.enabled": "Dokonany wizualizator z regałów jest włączony",
     "key.chiseledbookshelfvisualizer.disabled": "Rząty wizualizator półki na książki jest wyłączony",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Dokumana konfigura",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Skala wizualizatora",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Użyj cyfr rzymskich"
+    "text.autoconfig.chiseledbookshelfvisualizer.title": "Dokumana konfigura",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Skala wizualizatora",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Użyj cyfr rzymskich"
 }

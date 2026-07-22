@@ -3,7 +3,7 @@
     "key.chiseledbookshelfvisualizer.title": "Ativado/desativado o visualizador",
     "key.chiseledbookshelfvisualizer.enabled": "Visualizador de estante de estante esculpido está ativado",
     "key.chiseledbookshelfvisualizer.disabled": "Visualizador de estante de estante esculpido está desativado",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Config visualizador de estante de estante esculpido",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Escala de visualizador",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Use números romanos"
+    "text.autoconfig.chiseledbookshelfvisualizer.title": "Config visualizador de estante de estante esculpido",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Escala de visualizador",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Use números romanos"
 }

@@ -1,9 +1,9 @@
 {
-    "key.category.chiseledbookshelfvisualizer.category": "Chiseled Bookshelf Visualizer",
-    "key.chiseledbookshelfvisualizer.title": "시각화를 활성화/비활성화했습니다",
-    "key.chiseledbookshelfvisualizer.enabled": "Chiseled Bookshelf Visualizer가 활성화되어 있습니다",
-    "key.chiseledbookshelfvisualizer.disabled": "Chiseled Bookshelf Visualizer가 비활성화되었습니다",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Chiseled Bookshelf Visualizer Config",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Visualizer Scale",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "로마 숫자를 사용하십시오"
+  "key.category.chiseledbookshelfvisualizer.category": "조각된 책장 시각화 도구",
+  "key.chiseledbookshelfvisualizer.title": "비주얼라이저 활성화/비활성화",
+  "key.chiseledbookshelfvisualizer.enabled": "'Chiseled Bookshelf Visualizer'가 활성화되었습니다.",
+  "key.chiseledbookshelfvisualizer.disabled": "'Chiseled Bookshelf Visualizer'가 비활성화되었습니다.",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "조각된 책장 시각화 도구 설정",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "비주얼라이저 배율",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "로마 숫자를 사용하십시오."
 }

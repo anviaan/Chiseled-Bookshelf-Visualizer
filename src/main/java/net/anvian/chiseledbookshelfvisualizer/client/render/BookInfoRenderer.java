@@ -37,7 +37,7 @@ public class BookInfoRenderer {
     }
 
     public static void hudRender(GuiGraphicsExtractor context, Minecraft client) {
-        if (!shouldRenderCrosshair() || !ChiseledBookshelfVisualizerClient.isModAvailable() || client.options.hideGui) {
+        if (!shouldRenderCrosshair() || !ChiseledBookshelfVisualizerClient.isModAvailable() || client.gui.hud.isHidden()) {
             return;
         }
         if (!ChiseledBookshelfVisualizerClient.getBookshelfState().isCurrentBookDataToggled) {
@@ -52,7 +52,7 @@ public class BookInfoRenderer {
 
         int x = context.guiWidth() / 2;
         int y = context.guiHeight() / 2;
-        float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale();
+        float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale;
 
         MutableComponent name = itemStack.getHoverName().copy();
         Style styleName = itemStack.getRarity().color() == ChatFormatting.WHITE
@@ -67,7 +67,7 @@ public class BookInfoRenderer {
             for (Holder<Enchantment> enchantment : storedEnchantments.keySet()) {
                 int level = storedEnchantments.getLevel(enchantment);
                 MutableComponent enchantmentText;
-                if (!ChiseledBookshelfVisualizerClient.CONFIG.useRoman() || level == -1) {
+                if (!ChiseledBookshelfVisualizerClient.CONFIG.useRoman || level == -1) {
                     String suffix = level == 1 ? "" : " " + level;
                     enchantmentText = enchantment.value().description().copy().append(suffix);
                 } else if (level != 1) {
@@ -101,7 +101,7 @@ public class BookInfoRenderer {
         Matrix3x2fStack stack = context.pose();
         stack.pushMatrix();
         stack.translate(centerX, y);
-        float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale();
+        float scale = (float) ChiseledBookshelfVisualizerClient.CONFIG.scale;
         stack.scale(scale, scale);
         stack.translate(-centerX, -y);
         context.centeredText(font, text, centerX, y, DEFAULT_COLOR);

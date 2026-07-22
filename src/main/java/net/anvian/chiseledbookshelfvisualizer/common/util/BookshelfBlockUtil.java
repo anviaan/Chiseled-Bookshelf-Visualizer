@@ -2,11 +2,11 @@ package net.anvian.chiseledbookshelfvisualizer.common.util;
 
 import net.anvian.chiseledbookshelfvisualizer.ChiseledBookshelfVisualizerMod;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.entity.ChiseledBookShelfBlockEntity;
 
 import java.util.Optional;
@@ -18,9 +18,11 @@ public class BookshelfBlockUtil {
                 .getPlayer(player.getUUID());
         if (serverPlayer == null) return null;
 
-        final Level world = serverPlayer.level();
+        return getItemFromBookshelf(serverPlayer.level(), pos, slotNum);
+    }
 
-        Optional<ChiseledBookShelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityType.CHISELED_BOOKSHELF);
+    public static ItemStack getItemFromBookshelf(ServerLevel world, BlockPos pos, int slotNum) {
+        Optional<ChiseledBookShelfBlockEntity> blockEntityOptional = world.getBlockEntity(pos, BlockEntityTypes.CHISELED_BOOKSHELF);
         if (blockEntityOptional.isEmpty()) return null;
 
         ChiseledBookShelfBlockEntity blockEntity = blockEntityOptional.get();

@@ -3,7 +3,7 @@
   "key.chiseledbookshelfvisualizer.title": "Enabled/Disabled the visualizer",
   "key.chiseledbookshelfvisualizer.enabled": "Chiseled Bookshelf Visualizer is enabled",
   "key.chiseledbookshelfvisualizer.disabled": "Chiseled Bookshelf Visualizer is disabled",
-  "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Chiseled Bookshelf Visualizer Config",
-  "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Visualizer Scale",
-  "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Use Roman numerals"
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Chiseled Bookshelf Visualizer Config",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Visualizer Scale",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Use Roman numerals"
 }

@@ -1,9 +1,9 @@
 {
-    "key.category.chiseledbookshelfvisualizer.category": "Толкованный визуализатор книжной полки",
-    "key.chiseledbookshelfvisualizer.title": "Включено/отключил визуализатор",
-    "key.chiseledbookshelfvisualizer.enabled": "Включен точеный визуализатор книжной полки",
-    "key.chiseledbookshelfvisualizer.disabled": "Точеный визуализатор книжной полки отключен",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Точильная конфигурация книжной полки визуализатора",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Шкала визуализатора",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Используйте римские цифры"
+  "key.category.chiseledbookshelfvisualizer.category": "Визуализатор резной книжной полки",
+  "key.chiseledbookshelfvisualizer.title": "Включить/отключить визуализатор",
+  "key.chiseledbookshelfvisualizer.enabled": "Визуализатор «Chiseled Bookshelf» включен",
+  "key.chiseledbookshelfvisualizer.disabled": "Визуализатор «Chiseled Bookshelf» отключен",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Настройки визуализатора «Тесаная книжная полка»",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Масштаб визуализатора",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Использовать римские цифры"
 }

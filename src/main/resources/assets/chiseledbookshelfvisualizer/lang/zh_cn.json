@@ -1,9 +1,9 @@
 {
-    "key.category.chiseledbookshelfvisualizer.category": "凿书的书架可视化器",
-    "key.chiseledbookshelfvisualizer.title": "启用/禁用可视化器",
-    "key.chiseledbookshelfvisualizer.enabled": "符合凿子的书架可视化器已启用",
-    "key.chiseledbookshelfvisualizer.disabled": "凿书的书架可视化器是禁用的",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "凿书的书架可视化器配置",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "可视化器量表",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "使用罗马数字"
+  "key.category.chiseledbookshelfvisualizer.category": "凿刻书架可视化工具",
+  "key.chiseledbookshelfvisualizer.title": "启用/禁用可视化器",
+  "key.chiseledbookshelfvisualizer.enabled": "“雕刻书架可视化器”已启用",
+  "key.chiseledbookshelfvisualizer.disabled": "“雕花书架可视化器”已禁用",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "凿刻书架可视化器配置",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "可视化比例",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "使用罗马数字"
 }

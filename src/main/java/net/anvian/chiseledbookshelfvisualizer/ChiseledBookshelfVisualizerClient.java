@@ -1,6 +1,8 @@
 package net.anvian.chiseledbookshelfvisualizer;
 
-import net.anvian.chiseledbookshelfvisualizer.client.config.ClientConfigWrapper;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.anvian.chiseledbookshelfvisualizer.client.config.ClientConfig;
 import net.anvian.chiseledbookshelfvisualizer.client.data.BookInfo;
 import net.anvian.chiseledbookshelfvisualizer.client.data.BookshelfState;
 import net.anvian.chiseledbookshelfvisualizer.client.input.KeyBindings;
@@ -23,7 +25,7 @@ import net.minecraft.resources.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class ChiseledBookshelfVisualizerClient implements ClientModInitializer {
-    public static final ClientConfigWrapper CONFIG = ClientConfigWrapper.createAndLoad();
+    public static ClientConfig CONFIG;
 
     private static BookInfo currentBookInfo = BookInfo.empty();
     private static BookshelfState bookshelfState = new BookshelfState();
@@ -32,6 +34,9 @@ public class ChiseledBookshelfVisualizerClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        AutoConfig.register(ClientConfig.class, Toml4jConfigSerializer::new);
+        CONFIG = AutoConfig.getConfigHolder(ClientConfig.class).getConfig();
+
         KeyBindings.register();
         registerClientPacketHandlers();
         registerClientEvents();
