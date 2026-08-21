@@ -1,0 +1,43 @@
+modLoader = "javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+license = "${license}"
+issueTrackerURL = "https://github.com/anviaan/Chiseled-Bookshelf-Visualizer/issues"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
+updateJSONURL = "https://api.modrinth.com/updates/chiseledbookshelfvisualizer/forge_updates.json"
+displayURL = "https://modrinth.com/mod/chiseledbookshelfvisualizer"
+logoFile = "${mod_id}.png"
+credits = "${credits}"
+authors = "${mod_author}, anvian"
+description = "${description}"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "anvianslib"
+type = "required"
+versionRange = "[${anvianslib_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "cloth_config"
+type = "required"
+versionRange = "[${cloth_config_version},)"
+ordering = "NONE"
+side = "BOTH"

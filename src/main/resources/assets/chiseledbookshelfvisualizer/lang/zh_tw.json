@@ -1,9 +1,0 @@
-{
-    "key.category.chiseledbookshelfvisualizer.category": "鑿書的書架可視化器",
-    "key.chiseledbookshelfvisualizer.title": "啟用/禁用可視化器",
-    "key.chiseledbookshelfvisualizer.enabled": "符合鑿子的書架可視化器已啟用",
-    "key.chiseledbookshelfvisualizer.disabled": "鑿書的書架可視化器是禁用的",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "鑿書的書架可視化器配置",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "可視化器量表",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "使用羅馬數字"
-}

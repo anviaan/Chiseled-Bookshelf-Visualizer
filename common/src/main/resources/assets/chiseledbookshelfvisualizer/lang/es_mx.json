@@ -1,0 +1,9 @@
+{
+  "key.category.chiseledbookshelfvisualizer.category": "Visualizador de estantería tallada",
+  "key.chiseledbookshelfvisualizer.title": "Visualizador activado/desactivado",
+  "key.chiseledbookshelfvisualizer.enabled": "El visualizador de la estantería tallada está habilitado",
+  "key.chiseledbookshelfvisualizer.disabled": "El visualizador de la estantería tallada está desactivado",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Configuración del visualizador de la estantería tallada",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Escala del visualizador",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Usa números romanos"
+}

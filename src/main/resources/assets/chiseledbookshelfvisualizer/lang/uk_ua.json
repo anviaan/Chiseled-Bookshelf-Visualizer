@@ -1,9 +1,0 @@
-{
-    "key.category.chiseledbookshelfvisualizer.category": "Візуалізатор Buiseled Bookshers",
-    "key.chiseledbookshelfvisualizer.title": "Увімкнено/вимкнено візуалізатор",
-    "key.chiseledbookshelfvisualizer.enabled": "Візуалізатор Booksel Bookshell увімкнено",
-    "key.chiseledbookshelfvisualizer.disabled": "Візуалізатор Bookseled Bookshell відключений",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.title": "Конфігурація візуалізатора Bookshed Bookshel",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.scale": "Шкала візуалізатора",
-    "text.config.chiseledbookshelfvisualizer/chiseledbookshelfvisualizer-config.option.useRoman": "Використовуйте римські цифри"
-}

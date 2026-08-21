@@ -1,0 +1,9 @@
+{
+  "key.category.chiseledbookshelfvisualizer.category": "Visualizator pentru raftul de cărți cioplit",
+  "key.chiseledbookshelfvisualizer.title": "Activare/dezactivare vizualizator",
+  "key.chiseledbookshelfvisualizer.enabled": "Chiseled Bookshelf Visualizer este activat",
+  "key.chiseledbookshelfvisualizer.disabled": "Chiseled Bookshelf Visualizer este dezactivat",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Configurație vizualizator raft de cărți cioplit",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Scala vizualizatorului",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Folosiți cifre romane"
+}

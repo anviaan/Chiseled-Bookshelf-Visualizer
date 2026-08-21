@@ -8,7 +8,7 @@ The **Chiseled Bookshelf Visualizer** is a Minecraft mod that adds a new gaming 
 - **Easy selection**: With clear information about the contents of each shelf, you can quickly select the book you need without having to check each shelf manually.
 
 ## Notice
-The mod works in single player and if you want to play in multiplayer, the mod must also be installed on the server (Fabric server).
+The mod works in single player and multiplayer. For multiplayer, install the same loader version (Fabric or NeoForge) on the server.
 
 ### Info
 This mod is forked from the original mod by [lukasabbe](https://github.com/lukasabbe/bookshelf-inspector)

@@ -1,0 +1,9 @@
+{
+  "key.category.chiseledbookshelfvisualizer.category": "鑿刻書架視覺化工具",
+  "key.chiseledbookshelfvisualizer.title": "啟用／停用視覺化工具",
+  "key.chiseledbookshelfvisualizer.enabled": "「雕花書架視覺化工具」已啟用",
+  "key.chiseledbookshelfvisualizer.disabled": "「雕花書架視覺化工具」已停用",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "「鑿刻書架視覺化工具」設定",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "視覺化比例",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "使用羅馬數字"
+}

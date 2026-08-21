@@ -1,0 +1,9 @@
+{
+  "key.category.chiseledbookshelfvisualizer.category": "Visualiseur d'étagère ciselée",
+  "key.chiseledbookshelfvisualizer.title": "Activer/désactiver le visualiseur",
+  "key.chiseledbookshelfvisualizer.enabled": "Le visualiseur d'étagère ciselée est activé",
+  "key.chiseledbookshelfvisualizer.disabled": "Le visualiseur de l'étagère ciselée est désactivé",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Configuration du visualiseur d'étagère ciselée",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Échelle du visualiseur",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Utilisez des chiffres romains."
+}

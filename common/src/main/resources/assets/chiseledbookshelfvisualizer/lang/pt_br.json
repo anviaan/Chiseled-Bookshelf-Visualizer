@@ -1,0 +1,9 @@
+{
+    "key.category.chiseledbookshelfvisualizer.category": "Visualizador de estante de livros esculpido",
+    "key.chiseledbookshelfvisualizer.title": "Ativado/desativado o visualizador",
+    "key.chiseledbookshelfvisualizer.enabled": "Visualizador de estante de estante esculpido está ativado",
+    "key.chiseledbookshelfvisualizer.disabled": "Visualizador de estante de estante esculpido está desativado",
+    "text.autoconfig.chiseledbookshelfvisualizer.title": "Config visualizador de estante de estante esculpido",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Escala de visualizador",
+    "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Use números romanos"
+}

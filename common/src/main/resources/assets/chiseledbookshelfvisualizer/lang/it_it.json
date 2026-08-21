@@ -1,0 +1,9 @@
+{
+  "key.category.chiseledbookshelfvisualizer.category": "Visualizzatore della libreria scolpita",
+  "key.chiseledbookshelfvisualizer.title": "Visualizzatore abilitato/disabilitato",
+  "key.chiseledbookshelfvisualizer.enabled": "Il visualizzatore della libreria cesellata è abilitato",
+  "key.chiseledbookshelfvisualizer.disabled": "Il visualizzatore della libreria scolpita è disabilitato",
+  "text.autoconfig.chiseledbookshelfvisualizer.title": "Configurazione del visualizzatore della libreria scolpita",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.scale": "Scala del visualizzatore",
+  "text.autoconfig.chiseledbookshelfvisualizer.option.useRoman": "Utilizzare i numeri romani"
+}
